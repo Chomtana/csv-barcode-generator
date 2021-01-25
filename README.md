@@ -1,24 +1,3 @@
-# t
+# DEPRECATED Because Vue 3 not supported by vue-barcode at the time of writing
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Use https://github.com/Chomtana/barcode-generator-csv repo instead
