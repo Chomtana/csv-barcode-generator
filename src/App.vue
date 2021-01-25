@@ -5,7 +5,7 @@
       <input type="file" class="form-control" @change="fileOnChange($event)" />
     </div>
 
-    <template v-if="true">
+    <template v-if="fileLoaded">
       <div class="mb-3">
         <label class="mb-1">Table column (JSON Array)</label>
         <div class="input-group">
@@ -18,7 +18,7 @@
 
       <div class="mb-3">
         <label class="mb-1">Barcode column</label>
-        <select class="form-control">
+        <select class="form-control" v-model="barcodeColumn">
           <option value="" disabled selected hidden></option>
           <option v-for="column in columns" :key="column">{{ column }}</option>
         </select>
@@ -35,11 +35,17 @@
         <tbody>
           <tr v-for="(row, i) in data" :key="i">
             <td v-for="column in columns" :key="column">{{ row[column] }}</td>
-            <td v-if="barcodeColumn"></td>
+            <td v-if="barcodeColumn">
+              <svg class="barcode" :jsbarcode-value="row[column]"></svg>
+            </td>
           </tr>
         </tbody>
       </table>
     </template>
+
+    <div class="mt-4 text-center">
+      Barcode generator from CSV by Chomtana :)
+    </div>
   </div>
 </template>
 
@@ -131,6 +137,13 @@ export default {
         this.columnsJson = JSON.stringify(val);
       },
     },
+    barcodeColumn(val) {
+      if (val) {
+        setTimeout(() => {
+          
+        }, 1000);
+      }
+    }
   },
 };
 </script>
